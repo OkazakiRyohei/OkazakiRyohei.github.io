@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{background-image; url("wood-1853403_340.webp");}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    localStorage.setItem('c_count', 0);
+      cookie_count = parseInt(localStorage.getItem('c_count', 0));
+      
+    function cookieClick(num) {
+      var count_text = document.getElementById("cookie_count")
+      cookie_count++
+      count_text.textContent = cookie_count;
+    }
+      function cursor() {
+       setInterval(cookieClick,1000,1);
+      }
+      function grandma(){
+        if(cookie_count >= 100){
+          cookie_count -= 100;
+      }
+        setInterval(cookieClick,1000,1);
+      }
+      function farm(){
+        setInterval(cookieClick,1000,8);
+      }
+      function mine(){
+        setInterval(cookieClick,1000,47);
+      }
+      function factory(){
+        setInterval(cookieClick,1000,1);
+      }
+    </script>
+    <p>
+      <span id="cookie_count"></span> cookies
+    </p>
+    <img onclick="cookieClick(1)" src="Cookie.jpg" alt="">
+    <ul>
+      <li onclick="cursor()">カーソル</li>
+      <li onclick="grandma()">グランマ</li>
+      <li onclick="farm()">ファーム</li>
+      <li onclick="mine()">マイン</li>
+      <li onclick="factory">ファクトリー</li>
+    </ul>
+  </body>
+</html>
