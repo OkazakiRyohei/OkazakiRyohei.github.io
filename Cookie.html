@@ -10,13 +10,28 @@
   <body>
     <script type="text/javascript">
 
-    localStorage.setItem('c_count', 0);
-      cookie_count = parseInt(localStorage.getItem('c_count', 0));
-      
-    function cookieClick(num) {
+
+    let ls_count = localStorage.getItem("ls_count");
+    if(ls_count){
+      cookie_count = parseInt(ls_count);
+    }else {
+      cookie_count = 0;
+    }
+
+    setInterval(save_action,1000);
+    function save_action() {
+      localStorage.setItem("ls_count",cookie_count);
+    }
+
+    setInterval(screen_updata,100);
+    function screen_updata() {
       var count_text = document.getElementById("cookie_count")
-      cookie_count++
       count_text.textContent = cookie_count;
+    }
+
+    function cookieClick(num) {
+      cookie_count = cookie_count + num;
+
     }
       function cursor() {
        setInterval(cookieClick,1000,1);
